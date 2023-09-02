@@ -49,9 +49,14 @@ public class InputManager : MonoBehaviour
         return playerInput.Player.Look.ReadValue<Vector2>();
     }
 
-    public bool PlayerJumpedThisFrame()
+    public bool JumpedThisFrame()
     {
         return playerInput.Player.Jump.WasPerformedThisFrame();
+    }
+
+    public bool SpawnedProjectileThisFrame()
+    {
+        return playerInput.Player.SpawnProjectile.WasPerformedThisFrame();
     }
 
 }

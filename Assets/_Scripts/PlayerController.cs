@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
-public class Example : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float speed = 2.0f;
+    [SerializeField] private float speed = 3.0f;
     [SerializeField] private float jumpHeight = 1.0f;
     [SerializeField] private float gravityValue = -9.81f;
 
@@ -51,7 +51,7 @@ public class Example : MonoBehaviour
 
     private void Jump()
     {
-        if (controller.isGrounded && inputManager.PlayerJumpedThisFrame())  
+        if (controller.isGrounded && inputManager.JumpedThisFrame())  
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravityValue);
         }
