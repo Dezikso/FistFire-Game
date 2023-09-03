@@ -9,6 +9,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpHeight = 1.0f;
     [SerializeField] private float gravityValue = -9.81f;
 
+    [Tooltip("Parent of all objects that need to be facing the same direction as playerfollowcamera")]
+    [SerializeField] Transform cameraLook;
+
     private CharacterController controller;
     private InputManager inputManager;
     private Transform cameraTransform
@@ -34,6 +37,16 @@ public class PlayerController : MonoBehaviour
         ApplyGravity();
         Jump();
         PerformMovement();
+    }
+
+    private void FixedUpdate()
+    {
+        UpdateCameraLook();
+    }
+
+    private void UpdateCameraLook()
+    {
+        cameraLook.rotation = cameraTransform.rotation;
     }
 
     private void CalculateMovement()
@@ -62,4 +75,5 @@ public class PlayerController : MonoBehaviour
         controller.Move(moveValue * Time.deltaTime * speed);
         controller.Move(velocity * Time.deltaTime);
     }
+
 }

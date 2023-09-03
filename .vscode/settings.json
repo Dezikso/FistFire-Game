@@ -52,5 +52,5 @@
         "temp/":true,
         "Temp/":true
     },
-    "dotnet.defaultSolution": "FistFire.sln"
+    "dotnet.defaultSolution": "FistFire---Game-Prototype.sln"
 }

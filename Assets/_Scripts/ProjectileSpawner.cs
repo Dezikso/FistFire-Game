@@ -5,14 +5,16 @@ using UnityEngine;
 
 public class ProjectileSpawner : MonoBehaviour
 {
-    [SerializeField] Transform projectileRoot;
+    [SerializeField] private Transform projectileRoot;
 
     private InputManager inputManager;
+    private PoolManager poolManager;
 
 
     private void Start()
     {
         inputManager = InputManager.Instance;
+        poolManager = PoolManager.Instance;
     }
 
     private void Update()
@@ -25,7 +27,7 @@ public class ProjectileSpawner : MonoBehaviour
     {
         if (inputManager.SpawnedProjectileThisFrame())
         {
-            Debug.Log("Spawned a projectile at: " + projectileRoot);
+            poolManager.SpawnFromPool("Projectile", projectileRoot.position, projectileRoot.rotation);
         }
     }
 }
