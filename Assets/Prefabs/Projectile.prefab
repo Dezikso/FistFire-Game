@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7044147112926393539}
   - component: {fileID: 473900139309270431}
-  m_Layer: 0
+  - component: {fileID: 9186169744522337121}
+  m_Layer: 6
   m_Name: Projectile
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,7 +46,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41e9ee67dfaaa3546be2c72950c842ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToDespawn: 3
+  timeToDespawn: 1
+  isPunched: 0
+  rayDir: {x: 0, y: 0, z: 0}
+--- !u!135 &9186169744522337121
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3992112556479053865}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8070511310130849529
 GameObject:
   m_ObjectHideFlags: 0
@@ -57,9 +81,8 @@ GameObject:
   - component: {fileID: 2436905894768035930}
   - component: {fileID: 8214553685772610853}
   - component: {fileID: 5777918345864756952}
-  - component: {fileID: 8944986719254234019}
-  m_Layer: 0
-  m_Name: Collider
+  m_Layer: 6
+  m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -130,24 +153,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &8944986719254234019
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8070511310130849529}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}

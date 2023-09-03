@@ -44,11 +44,6 @@ public class InputManager : MonoBehaviour
         return playerInput.Player.Movement.ReadValue<Vector2>();
     }
 
-    public Vector2 GetMouseDelta()
-    {
-        return playerInput.Player.Look.ReadValue<Vector2>();
-    }
-
     public bool JumpedThisFrame()
     {
         return playerInput.Player.Jump.WasPerformedThisFrame();
@@ -57,6 +52,11 @@ public class InputManager : MonoBehaviour
     public bool SpawnedProjectileThisFrame()
     {
         return playerInput.Player.SpawnProjectile.WasPerformedThisFrame();
+    }
+
+    public bool PunchedThisFrame()
+    {
+        return playerInput.Player.Punch.WasPerformedThisFrame();
     }
 
 }
