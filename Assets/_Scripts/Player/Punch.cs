@@ -36,8 +36,7 @@ public class Punch : MonoBehaviour
             {
                 if (hitObject.GetComponent<Projectile>() != null)
                 {
-                    hitObject.GetComponent<Projectile>().isPunched = true;
-                    hitObject.GetComponent<Projectile>().rayDir = cameraTransform.forward;
+                    hitObject.GetComponent<Projectile>().OnPunch();
                 }
             }
             //END OF DEBUG

@@ -8,7 +8,7 @@ public class PoolManager : MonoBehaviour
     [System.Serializable]
     public class Pool
     {
-        public string tag;
+        public PoolType poolType;
         public GameObject prefab;
         public int size;
     }
@@ -23,12 +23,12 @@ public class PoolManager : MonoBehaviour
     #endregion
 
     [SerializeField] private List<Pool> pools;
-    [SerializeField]private Dictionary<string, Queue<GameObject>> poolDictionary;
+    [SerializeField]private Dictionary<PoolType, Queue<GameObject>> poolDictionary;
 
 
     private void Start()
     {
-        poolDictionary = new Dictionary<string, Queue<GameObject>>();
+        poolDictionary = new Dictionary<PoolType, Queue<GameObject>>();
 
         InitializePools();
     }
@@ -47,21 +47,22 @@ public class PoolManager : MonoBehaviour
                 objectPool.Enqueue(obj);
             }
 
-            poolDictionary.Add(pool.tag, objectPool);
+            poolDictionary.Add(pool.poolType, objectPool);
         }
     }
 
-    public GameObject SpawnFromPool(string tag, Vector3 position, Quaternion rotation)
+    public GameObject SpawnFromPool(PoolType poolType, Vector3 position, Quaternion rotation)
     {
-        if (!poolDictionary.ContainsKey(tag)) { return null; }
+        if (!poolDictionary.ContainsKey(poolType)) { return null; }
 
-        GameObject objectToSpawn = poolDictionary[tag].Dequeue();
+        GameObject objectToSpawn = poolDictionary[poolType].Dequeue();
 
+        objectToSpawn.SetActive(false);
         objectToSpawn.transform.position = position;
         objectToSpawn.transform.rotation = rotation;
         objectToSpawn.SetActive(true);
 
-        poolDictionary[tag].Enqueue(objectToSpawn);
+        poolDictionary[poolType].Enqueue(objectToSpawn);
         return objectToSpawn;
     }
 

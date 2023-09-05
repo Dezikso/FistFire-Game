@@ -27,7 +27,7 @@ public class ProjectileSpawner : MonoBehaviour
     {
         if (inputManager.SpawnedProjectileThisFrame())
         {
-            poolManager.SpawnFromPool("Projectile", projectileRoot.position, projectileRoot.rotation);
+            GameObject spawnedProjectile = poolManager.SpawnFromPool(PoolType.Projectile, projectileRoot.position, projectileRoot.rotation);
         }
     }
 }
