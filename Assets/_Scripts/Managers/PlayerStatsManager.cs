@@ -15,6 +15,7 @@ public class PlayerStatsManager : MonoBehaviour
         else
         {
             Instance = this;
+            DontDestroyOnLoad(this);
         }
     }
     #endregion

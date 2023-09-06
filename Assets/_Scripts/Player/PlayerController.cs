@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(CharacterController), typeof(InputManager))]
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float speed = 3.0f;
@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         controller = GetComponent<CharacterController>();
-        inputManager = InputManager.Instance;
+        inputManager = GetComponent<InputManager>();
         cameraTransform = Camera.main.transform;
 
         

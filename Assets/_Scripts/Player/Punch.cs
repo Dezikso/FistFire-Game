@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(InputManager))]
 public class Punch : MonoBehaviour
 {
     [SerializeField] private LayerMask mask;
@@ -14,7 +15,7 @@ public class Punch : MonoBehaviour
 
     private void Start()
     {
-        inputManager = InputManager.Instance;
+        inputManager = GetComponent<InputManager>();
         cameraTransform = Camera.main.transform;
     }
 

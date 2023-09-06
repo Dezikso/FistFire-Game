@@ -4,27 +4,11 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-    #region Singleton
-    public static InputManager Instance { get; private set; }
-    private void InitializeSingleton()
-    {
-        if(Instance != null && Instance != this)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            Instance = this;
-        }
-    }
-    #endregion
-
     private PlayerInputActions playerInput;
 
 
     private void Awake() 
     {
-        InitializeSingleton();
         playerInput = new PlayerInputActions();
     }
 

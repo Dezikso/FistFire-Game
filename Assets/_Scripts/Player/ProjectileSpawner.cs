@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(InputManager))]
 public class ProjectileSpawner : MonoBehaviour
 {
     [SerializeField] private Transform projectileRoot;
@@ -13,8 +14,8 @@ public class ProjectileSpawner : MonoBehaviour
 
     private void Start()
     {
-        inputManager = InputManager.Instance;
         poolManager = PoolManager.Instance;
+        inputManager = GetComponent<InputManager>();
     }
 
     private void Update()
