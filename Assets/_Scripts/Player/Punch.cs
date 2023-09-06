@@ -31,12 +31,14 @@ public class Punch : MonoBehaviour
             //TODO IMPLEMENT INTERACTION SYSTEM BASED ON OBEJCT HIT
             //START OF DEBUG
             
+            Projectile projectile;
             GameObject hitObject = CheckRaycastHit();
+
             if (hitObject != null)
             {
-                if (hitObject.GetComponent<Projectile>() != null)
+                if (projectile = hitObject.GetComponent<Projectile>())
                 {
-                    hitObject.GetComponent<Projectile>().OnPunch(cameraTransform.forward);
+                    projectile.OnPunch(cameraTransform.forward);
                 }
             }
 

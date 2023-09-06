@@ -6,8 +6,6 @@ using UnityEngine;
 public class ProjectileSpawner : MonoBehaviour
 {
     [SerializeField] private Transform projectileRoot;
-    //TODO refactor with player stats
-    [SerializeField] private ProjectileData projectileData;
 
     private InputManager inputManager;
     private PoolManager poolManager;
@@ -30,9 +28,6 @@ public class ProjectileSpawner : MonoBehaviour
         if (inputManager.SpawnedProjectileThisFrame())
         {
             GameObject poolObject = poolManager.SpawnFromPool(PoolType.Projectile, projectileRoot.position, projectileRoot.rotation);
-            Projectile projectile = poolObject.GetComponent<Projectile>();
-
-            projectile.InitializeStats(projectileData);
         }
     }
 }

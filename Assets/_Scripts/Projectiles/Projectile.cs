@@ -14,15 +14,18 @@ public class Projectile : MonoBehaviour
     }
 
 
-
-    private ProjectileData projectileData;
+    private ProjectileStats projectileStats;
     private ProjectileState state = ProjectileState.idle;
     private Vector3 moveDirection;
 
 
+    private void Awake()
+    {
+        projectileStats = PlayerStatsManager.Instance.ProjectileStats;
+    }
+
     private void OnEnable()
     {
-        projectileData = null;
         moveDirection = Vector3.zero;
         state = ProjectileState.idle;
     }
@@ -64,23 +67,14 @@ public class Projectile : MonoBehaviour
     {
         if (moveDirection != null)
         {
-            transform.Translate(moveDirection * projectileData.speed * Time.deltaTime, Space.World);
+            transform.Translate(moveDirection * projectileStats.speed * Time.deltaTime, Space.World);
         }
-    }
-
-
-    public void InitializeStats(ProjectileData _projectileData)
-    {
-        this.projectileData = _projectileData;
     }
 
     public void OnPunch(Vector3 _moveDirection)
-    {
-        if (projectileData != null)
-        {
-            state = ProjectileState.active;
-            moveDirection = _moveDirection;
-        }
+    {   
+        state = ProjectileState.active;
+        moveDirection = _moveDirection;
     }
 
 }
