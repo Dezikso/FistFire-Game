@@ -8,8 +8,8 @@ public class ProjectileSpawner : MonoBehaviour
 {
     [SerializeField] private Transform projectileRoot;
 
-    private InputManager inputManager;
     private PoolManager poolManager;
+    private InputManager inputManager;
 
 
     private void Start()

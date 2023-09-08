@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1061813346b68bd47b903446a02a2ea2, type: 3}
-  m_Name: ProjectileBaseStats
+  m_Script: {fileID: 11500000, guid: b98171d746186234eaa2bb374299b88f, type: 3}
+  m_Name: BasePlayerStats
   m_EditorClassIdentifier: 
+  maxHealth: 100
   damage: 10
-  speed: 1
+  speed: 3
+  projectileSpeed: 2
   fireRate: 1
-  critRate: 0
-  critDamage: 0

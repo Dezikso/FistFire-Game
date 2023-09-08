@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(CharacterController), typeof(InputManager))]
+[RequireComponent(typeof(CharacterController), typeof(InputManager), typeof(PlayerStatsManager))]
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float speed = 3.0f;
     [SerializeField] private float jumpHeight = 1.0f;
     [SerializeField] private float gravityValue = -9.81f;
 
@@ -14,8 +13,8 @@ public class PlayerController : MonoBehaviour
 
     private CharacterController controller;
     private InputManager inputManager;
-    private Transform cameraTransform
-;
+    private PlayerStats playerStats;
+    private Transform cameraTransform;
     private Vector3 moveValue;
     private Vector3 velocity;
 
@@ -24,6 +23,7 @@ public class PlayerController : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         inputManager = GetComponent<InputManager>();
+        playerStats = GetComponent<PlayerStatsManager>().PlayerStats;
         cameraTransform = Camera.main.transform;
 
         
@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour
 
     private void PerformMovement()
     {
-        controller.Move(moveValue * Time.deltaTime * speed);
+        controller.Move(moveValue * Time.deltaTime * playerStats.speed);
         controller.Move(velocity * Time.deltaTime);
     }
 
