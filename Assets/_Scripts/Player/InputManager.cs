@@ -38,9 +38,9 @@ public class InputManager : MonoBehaviour
         return playerInput.Player.SpawnProjectile.WasPerformedThisFrame();
     }
 
-    public bool PunchedThisFrame()
+    public bool InteractedThisFrame()
     {
-        return playerInput.Player.Punch.WasPerformedThisFrame();
+        return playerInput.Player.Interact.WasPerformedThisFrame();
     }
 
 }

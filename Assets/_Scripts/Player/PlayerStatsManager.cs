@@ -8,28 +8,31 @@ public class PlayerStatsManager : MonoBehaviour
     [SerializeField] private PlayerStats basePlayerStats;
 
     private PlayerStats playerStats;
-    public PlayerStats PlayerStats{ get{return playerStats;} }
-    private float currentHealth;
+
+    public static Action<PlayerStats> onStatsChange;
 
 
-    private void Awake()
+    private void Start()
     {
         playerStats = PlayerStats.CreateInstance(basePlayerStats);
-        currentHealth = playerStats.maxHealth;
+        onStatsChange?.Invoke(playerStats);
     }
 
 
     public void UpdateStats(PlayerStats _playerStats)
     {
         playerStats.maxHealth += _playerStats.maxHealth;
+        playerStats.currentHealth += _playerStats.currentHealth;
         playerStats.damage += _playerStats.damage;
         playerStats.speed += _playerStats.speed;
         playerStats.fireRate += _playerStats.fireRate;
+
+        onStatsChange?.Invoke(playerStats);
     }
 
     public void ChangeHealth(float healthChange)
     {
-        currentHealth += healthChange;
+        playerStats.currentHealth += healthChange;
 
     }
 }

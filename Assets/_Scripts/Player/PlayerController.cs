@@ -19,11 +19,20 @@ public class PlayerController : MonoBehaviour
     private Vector3 velocity;
 
 
+    private void OnEnable()
+    {
+        PlayerStatsManager.onStatsChange += UpdateStats;
+    }
+
+    private void OnDisable()
+    {
+        PlayerStatsManager.onStatsChange -= UpdateStats;
+    }
+
     private void Start()
     {
         controller = GetComponent<CharacterController>();
         inputManager = GetComponent<InputManager>();
-        playerStats = GetComponent<PlayerStatsManager>().PlayerStats;
         cameraTransform = Camera.main.transform;
 
         
@@ -74,6 +83,11 @@ public class PlayerController : MonoBehaviour
     {
         controller.Move(moveValue * Time.deltaTime * playerStats.speed);
         controller.Move(velocity * Time.deltaTime);
+    }
+
+    private void UpdateStats(PlayerStats stats)
+    {
+        playerStats = stats;
     }
 
 }

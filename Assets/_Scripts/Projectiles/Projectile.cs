@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Projectile : MonoBehaviour
+public class Projectile : Interactable
 {
     private enum ProjectileState
     {
@@ -20,10 +20,14 @@ public class Projectile : MonoBehaviour
     private Vector3 moveDirection;
 
 
+    private void Awake()
+    {
+        PlayerStatsManager.onStatsChange += UpdateStats;
+    }
+
     private void OnEnable()
     {
         moveDirection = Vector3.zero;
-        playerStats = null;
         ChangeState(ProjectileState.entry);
     }
 
@@ -46,7 +50,7 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    private void ChangeState(ProjectileState _state)
+    void ChangeState(ProjectileState _state)
     {
         state = _state;
     }
@@ -84,12 +88,18 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    public void OnPunch(Vector3 _moveDirection, PlayerStats stats)
-    {   
-        moveDirection = _moveDirection;
+    private void UpdateStats(PlayerStats stats)
+    {
         playerStats = stats;
+    }
 
-        ChangeState(ProjectileState.active);
+    protected override void Interact()
+    {
+        if (state == ProjectileState.idle)
+        {
+            moveDirection = Camera.main.transform.forward;
+            ChangeState(ProjectileState.active);
+        }
     }
 
 }
