@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerStatsManager : MonoBehaviour
 {
@@ -22,7 +23,6 @@ public class PlayerStatsManager : MonoBehaviour
     public void UpdateStats(PlayerStats _playerStats)
     {
         playerStats.maxHealth += _playerStats.maxHealth;
-        playerStats.currentHealth += _playerStats.currentHealth;
         playerStats.damage += _playerStats.damage;
         playerStats.speed += _playerStats.speed;
         playerStats.fireRate += _playerStats.fireRate;
@@ -30,9 +30,4 @@ public class PlayerStatsManager : MonoBehaviour
         onStatsChange?.Invoke(playerStats);
     }
 
-    public void ChangeHealth(float healthChange)
-    {
-        playerStats.currentHealth += healthChange;
-
-    }
 }

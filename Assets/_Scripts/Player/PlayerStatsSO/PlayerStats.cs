@@ -6,7 +6,6 @@ using UnityEngine;
 public class PlayerStats : ScriptableObject
 {
     public float maxHealth;
-    public float currentHealth;
     public float damage;
     public float speed;
     public float projectileSpeed;
