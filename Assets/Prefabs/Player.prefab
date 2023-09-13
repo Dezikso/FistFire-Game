@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8951924836464540133}
   - component: {fileID: 6317294251807992069}
   - component: {fileID: 1000349512961418977}
+  - component: {fileID: 4798027061682285053}
   - component: {fileID: 5469214434236727472}
   - component: {fileID: 452121718359975186}
   - component: {fileID: 5612925235637242493}
@@ -91,6 +92,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   basePlayerStats: {fileID: 11400000, guid: 6b2befb6e7fb4b34eaf09526e9027501, type: 2}
+--- !u!114 &4798027061682285053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040897044940737532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d6aa6045456a8c44a70ec58cb9fb91d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBarFront: {fileID: 0}
+  healthBarText: {fileID: 0}
 --- !u!114 &5469214434236727472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,7 +118,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ab938433e951654cbfd884be7f45127, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
   jumpHeight: 1
   gravityValue: -9.81
   cameraLook: {fileID: 5335467238549672339}

@@ -58,24 +58,20 @@ public class Projectile : Interactable
     #region States execution
     private void Entry()
     {
-        Debug.Log(state);
         ChangeState(ProjectileState.idle);
     }
 
     private void Idle()
     {
-        Debug.Log(state);
     }
 
     private void Active()
     {
-        Debug.Log(state);
         Move();
     }
 
     private void Exit()
     {
-        Debug.Log(state);
     }
     #endregion States execution
 

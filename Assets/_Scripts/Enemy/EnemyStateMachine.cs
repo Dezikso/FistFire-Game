@@ -6,6 +6,10 @@ public class EnemyStateMachine : MonoBehaviour
 {
     public EnemyBaseState activeState;
 
+    public void Initialize()
+    {
+        ChangeState(new EnemyIdleState());
+    }
 
     private void Update()
     {
@@ -13,11 +17,6 @@ public class EnemyStateMachine : MonoBehaviour
         {
             activeState.Perform();
         }
-    }
-
-    public void Initialize()
-    {
-        //setup default state
     }
 
     public void ChangeState(EnemyBaseState newState)
@@ -32,6 +31,7 @@ public class EnemyStateMachine : MonoBehaviour
         if (activeState != null)
         {
             activeState.stateMachine = this;
+            activeState.enemy = GetComponent<Enemy>();
             activeState.Enter();
         }
     }

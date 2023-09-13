@@ -12,7 +12,6 @@ public class DebugTarget : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("heheh");
         if (other.CompareTag("Projectile"))
         {
             materialBool = !materialBool;
