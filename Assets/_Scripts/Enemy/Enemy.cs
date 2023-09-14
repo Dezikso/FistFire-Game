@@ -6,9 +6,11 @@ using UnityEngine.AI;
 [RequireComponent(typeof(EnemyStateMachine), typeof(NavMeshAgent))]
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] private string activeState;
+    [SerializeField] private float maxHealth = 100f;
     [Header("Sight Values")]
-    [SerializeField] private float sightDistance = 10f;
-    [SerializeField] private float fieldOfView = 75f;
+    [SerializeField] private float sightDistance = 20f;
+    [SerializeField] private float fieldOfView = 85f;
     [SerializeField] private float eyeHeight = 1f;
     [Header("Weapon Values")]
     [Range(0.1f, 10f)] public float fireRate = 1f;
@@ -26,6 +28,7 @@ public class Enemy : MonoBehaviour
     public GameObject Player { get => player; }
     private Vector3 lastKnownPos;
     public Vector3 LastKnownPos { get => lastKnownPos; set => lastKnownPos = value; }
+    private float currentHealth;
 
 
     private void Start()
@@ -37,6 +40,20 @@ public class Enemy : MonoBehaviour
         stateMachine.Initialize();
     }
 
+    private void OnEnable()
+    {
+        currentHealth = maxHealth;
+    }
+
+    private void Update()
+    {
+        activeState = stateMachine.activeState.ToString();
+
+        if (currentHealth <= 0)
+        {
+            gameObject.SetActive(false);
+        }
+    }
 
     public bool CanSeePlayer()
     {
@@ -63,6 +80,12 @@ public class Enemy : MonoBehaviour
         }
         return false;
         
+    }
+
+    public void ChangeHealth(float healthChange)
+    {
+        currentHealth -= healthChange;
+        Debug.Log(currentHealth);
     }
 
 }

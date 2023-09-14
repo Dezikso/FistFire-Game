@@ -28,7 +28,12 @@ public class Projectile : Interactable
     private void OnEnable()
     {
         moveDirection = Vector3.zero;
-        ChangeState(ProjectileState.entry);
+        state = ProjectileState.entry;
+    }
+
+    private void UpdateStats(PlayerStats stats)
+    {
+        playerStats = stats;
     }
 
     private void Update()
@@ -36,44 +41,19 @@ public class Projectile : Interactable
         switch (state)
         {
             case ProjectileState.entry:
-                Entry();
+                state = ProjectileState.idle;
                 break;
             case ProjectileState.idle:
-                Idle();
+                //
                 break;
             case ProjectileState.active:
-                Active();
+                Move();
                 break;
             case ProjectileState.exit:
-                Exit();
+                gameObject.SetActive(false);
                 break;
         }
     }
-
-    void ChangeState(ProjectileState _state)
-    {
-        state = _state;
-    }
-
-    #region States execution
-    private void Entry()
-    {
-        ChangeState(ProjectileState.idle);
-    }
-
-    private void Idle()
-    {
-    }
-
-    private void Active()
-    {
-        Move();
-    }
-
-    private void Exit()
-    {
-    }
-    #endregion States execution
 
 
     private void Move()
@@ -84,17 +64,25 @@ public class Projectile : Interactable
         }
     }
 
-    private void UpdateStats(PlayerStats stats)
-    {
-        playerStats = stats;
-    }
-
     protected override void Interact()
     {
         if (state == ProjectileState.idle)
         {
             moveDirection = Camera.main.transform.forward;
-            ChangeState(ProjectileState.active);
+            state = ProjectileState.active;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (state == ProjectileState.active)
+        {
+            Enemy objectHit;
+            if (other.TryGetComponent(out objectHit))
+            {
+                objectHit.ChangeHealth(playerStats.damage);
+                state = ProjectileState.exit;
+            }
         }
     }
 

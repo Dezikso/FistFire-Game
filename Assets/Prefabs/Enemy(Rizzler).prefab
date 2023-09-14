@@ -27,10 +27,11 @@ Transform:
   m_GameObject: {fileID: 272643138344267253}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.75, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 2, y: 1.5, z: 2}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 4275578691171752563}
   m_Father: {fileID: 6047415671189427311}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4065897549360033850
@@ -191,8 +192,8 @@ Transform:
   m_GameObject: {fileID: 2809857955687603003}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.6666667, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3561034373970557795}
@@ -200,7 +201,7 @@ Transform:
   - {fileID: 3841413482478256160}
   - {fileID: 5001437388882070515}
   - {fileID: 6055101782341736105}
-  m_Father: {fileID: 6047415671189427311}
+  m_Father: {fileID: 4823115455824176046}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5102231725583363546
 GameObject:
@@ -236,7 +237,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4823115455824176046}
-  - {fileID: 4275578691171752563}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!65 &1482295812647623794
@@ -254,12 +254,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 2, y: 1.5, z: 2}
-  m_Center: {x: 0, y: 0.75, z: 0}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!195 &30559027884969309
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -274,7 +274,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0.01
+  m_StoppingDistance: 0.1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -306,8 +306,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbbd9710a5673c8478de0b7892fade22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sightDistance: 10
-  fieldOfView: 75
+  activeState: 
+  maxHealth: 100
+  sightDistance: 20
+  fieldOfView: 85
   eyeHeight: 0.5
   fireRate: 1
   moveDistance: 5
