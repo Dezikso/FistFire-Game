@@ -46,12 +46,14 @@ public class EnemyAttackState : EnemyBaseState
 
     private void Shoot()
     {
-        if (shootTimer > enemy.fireRate)
+        if (shootTimer > enemy.FireRate)
         {
-            Debug.Log("Shoot");
+            GameObject poolObject = PoolManager.Instance.SpawnFromPool(PoolType.EnemyProjectile, enemy.AttackRoot.position, enemy.AttackRoot.rotation);
+            poolObject.GetComponent<EnemyProjectile>().Initialize(enemy.transform.forward, -enemy.Damage, enemy.ProjectileSpeed);
             shootTimer = 0;
         }
     }
+
 
     private void Dodge()
     {

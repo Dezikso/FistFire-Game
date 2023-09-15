@@ -10,10 +10,19 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float maxHealth = 100f;
     [Header("Sight Values")]
     [SerializeField] private float sightDistance = 20f;
+    public float SightDistance { get => sightDistance; }
     [SerializeField] private float fieldOfView = 85f;
-    [SerializeField] private float eyeHeight = 1f;
+    [Range(0.1f, 10f)] private float eyeHeight = 1f;
+    public float EyeHeight { get => eyeHeight; }
     [Header("Weapon Values")]
-    [Range(0.1f, 10f)] public float fireRate = 1f;
+    [SerializeField] private float fireRate = 1f;
+    [SerializeField] private float damage = 10f;
+    public float Damage { get => damage; }
+    [SerializeField] private float projectileSpeed = 1f;
+    public float ProjectileSpeed { get => projectileSpeed; }
+    [SerializeField] private Transform attackRoot;
+    public Transform AttackRoot { get => attackRoot; }
+    public float FireRate { get => fireRate; }
     [Header("Dodge Values")]
     [SerializeField] private float moveDistance = 5f;
     public float MoveDistance { get => moveDistance; }
@@ -71,7 +80,6 @@ public class Enemy : MonoBehaviour
                     {
                         if (hitInfo.transform.gameObject == player)
                         {
-                            Debug.DrawRay(ray.origin, ray.direction * sightDistance);
                             return true;
                         }
                     }

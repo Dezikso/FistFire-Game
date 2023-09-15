@@ -39,17 +39,16 @@ public class PlayerHealth : MonoBehaviour
         playerStats = stats;
     }
 
+    private void ChangeHealthUI()
+    {
+        healthBarFront.fillAmount = health/playerStats.maxHealth;
+        healthBarText.text = (health/playerStats.maxHealth) * 100 + "%";
+    }
 
     public void ChangeHealth(float _health)
     {
         health += _health;
         ChangeHealthUI();
-    }
-
-    private void ChangeHealthUI()
-    {
-        healthBarFront.fillAmount = health/playerStats.maxHealth;
-        healthBarText.text = (health/playerStats.maxHealth) * 100 + "%";
     }
 
 }

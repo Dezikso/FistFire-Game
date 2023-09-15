@@ -823,7 +823,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.475, z: 10}
+  m_LocalPosition: {x: 0, y: 1.475, z: 50}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1190,6 +1190,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 895710421}
     m_Modifications:
+    - target: {fileID: 3015187277270233588, guid: 29ef484ad3efeb94db1e3ba6655a7cfe,
+        type: 3}
+      propertyPath: fireRate
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5102231725583363546, guid: 29ef484ad3efeb94db1e3ba6655a7cfe,
         type: 3}
       propertyPath: m_Name
@@ -1997,7 +2002,7 @@ Transform:
   m_GameObject: {fileID: 1092597150}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.475, z: 10}
+  m_LocalPosition: {x: 0, y: 1.475, z: 50}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4108,7 +4113,7 @@ PrefabInstance:
     - target: {fileID: 6973489936314207991, guid: 774e4ac956a85b64ea707e620d9891ca,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 6973489936314207991, guid: 774e4ac956a85b64ea707e620d9891ca,
         type: 3}
@@ -4165,8 +4170,29 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4510887563598320481, guid: 64532e9bb59181a40a6d8f96fdcc0a98,
         type: 3}
+      propertyPath: pools.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4510887563598320481, guid: 64532e9bb59181a40a6d8f96fdcc0a98,
+        type: 3}
       propertyPath: pools.Array.data[0].size
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4510887563598320481, guid: 64532e9bb59181a40a6d8f96fdcc0a98,
+        type: 3}
+      propertyPath: pools.Array.data[1].size
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4510887563598320481, guid: 64532e9bb59181a40a6d8f96fdcc0a98,
+        type: 3}
+      propertyPath: pools.Array.data[1].prefab
+      value: 
+      objectReference: {fileID: 3992112556479053865, guid: aaa12de22257eaa429e75c7af2c30c97,
+        type: 3}
+    - target: {fileID: 4510887563598320481, guid: 64532e9bb59181a40a6d8f96fdcc0a98,
+        type: 3}
+      propertyPath: pools.Array.data[1].poolType
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5005115746415319498, guid: 64532e9bb59181a40a6d8f96fdcc0a98,
         type: 3}
