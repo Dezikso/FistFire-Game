@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 272643138344267253}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0.75, z: 0}
   m_LocalScale: {x: 2, y: 1.5, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -227,8 +227,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2872664183887644228}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 0.5, z: 1.4}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -262,7 +262,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5102231725583363546}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -270,7 +270,7 @@ Transform:
   - {fileID: 4823115455824176046}
   - {fileID: 5127619416105450705}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1482295812647623794
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -291,7 +291,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 2, y: 1.5, z: 2}
-  m_Center: {x: 0, y: 0.5, z: 0}
+  m_Center: {x: 0, y: 0.75, z: 0}
 --- !u!195 &30559027884969309
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -339,15 +339,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activeState: 
-  maxHealth: 100
-  sightDistance: 20
-  fieldOfView: 85
-  fireRate: 1
-  damage: 10
-  projectileSpeed: 5
   attackRoot: {fileID: 5127619416105450705}
-  moveDistance: 5
-  searchTime: 5
+  enemyStats: {fileID: 11400000, guid: dc8064261974cc242965196f75575343, type: 2}
 --- !u!1 &5691479367830626865
 GameObject:
   m_ObjectHideFlags: 0

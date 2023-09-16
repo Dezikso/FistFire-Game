@@ -67,3 +67,10 @@ public class PoolManager : MonoBehaviour
     }
 
 }
+
+public enum PoolType
+{
+    Projectile,
+    EnemyProjectile1,
+    BasicEnemy
+}

@@ -7,28 +7,8 @@ using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private string activeState;
-    [SerializeField] private float maxHealth = 100f;
-    [Header("Sight Values")]
-    [SerializeField] private float sightDistance = 20f;
-    public float SightDistance { get => sightDistance; }
-    [SerializeField] private float fieldOfView = 85f;
-    [Range(0.1f, 10f)] private float eyeHeight = 1f;
-    public float EyeHeight { get => eyeHeight; }
-    [Header("Weapon Values")]
-    [SerializeField] private float fireRate = 1f;
-    [SerializeField] private float damage = 10f;
-    public float Damage { get => damage; }
-    [SerializeField] private float projectileSpeed = 1f;
-    public float ProjectileSpeed { get => projectileSpeed; }
     [SerializeField] private Transform attackRoot;
     public Transform AttackRoot { get => attackRoot; }
-    public float FireRate { get => fireRate; }
-    [Header("Dodge Values")]
-    [SerializeField] private float moveDistance = 5f;
-    public float MoveDistance { get => moveDistance; }
-    [Header("Search Values")]
-    [SerializeField] private float searchTime = 5f;
-    public float SearchTime { get => searchTime; }
 
     private EnemyStateMachine stateMachine;
     private NavMeshAgent agent;
@@ -39,8 +19,10 @@ public class Enemy : MonoBehaviour
     public Vector3 LastKnownPos { get => lastKnownPos; set => lastKnownPos = value; }
     private float currentHealth;
 
+    public EnemyStats enemyStats;
 
-    private void Start()
+
+    private void Awake()
     {
         stateMachine = GetComponent<EnemyStateMachine>();
         agent = GetComponent<NavMeshAgent>();
@@ -51,7 +33,8 @@ public class Enemy : MonoBehaviour
 
     private void OnEnable()
     {
-        currentHealth = maxHealth;
+        currentHealth = enemyStats.maxHealth;
+        agent.speed = enemyStats.speed;
     }
 
     private void Update()
@@ -68,15 +51,15 @@ public class Enemy : MonoBehaviour
     {
         if (player != null)
         {
-            if (Vector3.Distance(transform.position, player.transform.position) < sightDistance)
+            if (Vector3.Distance(transform.position, player.transform.position) < enemyStats.sightDistance)
             {
-                Vector3 targetDirection = player.transform.position - transform.position - (Vector3.up * eyeHeight);
+                Vector3 targetDirection = player.transform.position - transform.position - (Vector3.up * enemyStats.eyeHeight);
                 float angleToPlayer = Vector3.Angle(targetDirection, transform.forward);
-                if (angleToPlayer >= -fieldOfView && angleToPlayer <= fieldOfView)
+                if (angleToPlayer >= -enemyStats.fieldOfView && angleToPlayer <= enemyStats.fieldOfView)
                 {
-                   Ray ray = new Ray (transform.position + (Vector3.up * eyeHeight), targetDirection);
+                   Ray ray = new Ray (transform.position + (Vector3.up * enemyStats.eyeHeight), targetDirection);
                    RaycastHit hitInfo = new RaycastHit();
-                    if (Physics.Raycast(ray, out hitInfo, sightDistance))
+                    if (Physics.Raycast(ray, out hitInfo, enemyStats.sightDistance))
                     {
                         if (hitInfo.transform.gameObject == player)
                         {

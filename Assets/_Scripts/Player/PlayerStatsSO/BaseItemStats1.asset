@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b98171d746186234eaa2bb374299b88f, type: 3}
-  m_Name: UpdateStatsSO
+  m_Name: BaseItemStats1
   m_EditorClassIdentifier: 
   maxHealth: 10
   damage: 0

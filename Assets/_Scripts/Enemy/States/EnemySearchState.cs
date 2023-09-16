@@ -31,7 +31,7 @@ public class EnemySearchState : EnemyBaseState
 
             Move();
 
-            if (searchTimer > enemy.SearchTime)
+            if (searchTimer > enemy.enemyStats.searchTime)
             {
                 stateMachine.ChangeState(new EnemyIdleState());
             }
@@ -42,7 +42,7 @@ public class EnemySearchState : EnemyBaseState
     {
         if (moveTimer > Random.Range(2,6))
         {
-            enemy.Agent.SetDestination(enemy.transform.position + (Random.insideUnitSphere * enemy.MoveDistance));
+            enemy.Agent.SetDestination(enemy.transform.position + (Random.insideUnitSphere * enemy.enemyStats.stepDistance));
             moveTimer = 0;
         }
     }

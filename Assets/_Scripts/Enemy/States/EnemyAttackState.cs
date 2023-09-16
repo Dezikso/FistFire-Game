@@ -23,11 +23,11 @@ public class EnemyAttackState : EnemyBaseState
     {
         if (enemy.CanSeePlayer())
         {
+            enemy.transform.LookAt(enemy.Player.transform);
             looseSightTimer = 0;
             dodgeTimer += Time.deltaTime;
             shootTimer += Time.deltaTime;
-            enemy.transform.LookAt(enemy.Player.transform);
-
+            
             Shoot();
             Dodge();
 
@@ -46,20 +46,21 @@ public class EnemyAttackState : EnemyBaseState
 
     private void Shoot()
     {
-        if (shootTimer > enemy.FireRate)
+        if (shootTimer > enemy.enemyStats.fireRate)
         {
-            GameObject poolObject = PoolManager.Instance.SpawnFromPool(PoolType.EnemyProjectile, enemy.AttackRoot.position, enemy.AttackRoot.rotation);
-            poolObject.GetComponent<EnemyProjectile>().Initialize(enemy.transform.forward, -enemy.Damage, enemy.ProjectileSpeed);
+            GameObject poolObject = PoolManager.Instance.SpawnFromPool(enemy.enemyStats.projectileType, enemy.AttackRoot.position, Quaternion.identity);
+            poolObject.GetComponent<EnemyProjectile>().Initialize(enemy.transform.forward, -enemy.enemyStats.damage, enemy.enemyStats.projectileSpeed);
             shootTimer = 0;
         }
     }
+
 
 
     private void Dodge()
     {
         if (dodgeTimer > Random.Range(2,6))
         {
-            enemy.Agent.SetDestination(enemy.transform.position + (Random.insideUnitSphere * enemy.MoveDistance));
+            enemy.Agent.SetDestination(enemy.transform.position + (Random.insideUnitSphere * enemy.enemyStats.stepDistance));
             dodgeTimer = 0;
         }
     }

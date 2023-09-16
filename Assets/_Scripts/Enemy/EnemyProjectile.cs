@@ -38,6 +38,10 @@ public class EnemyProjectile : MonoBehaviour
             playerHit.ChangeHealth(damage);
             gameObject.SetActive(false);
         }
+        else
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     public void Initialize(Vector3 _moveDirection,float _damage, float _projectileSpeed)
