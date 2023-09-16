@@ -18,9 +18,9 @@ FistFire is a first person rouge-lite game based around creating projectiles and
 
 ## Current roadmap
 
-* Project setup, player movement and basic functionality
-* Interactables(projectiles and more) system 
-* Simple Enemies <-- (I'm here)
+* ~~Project setup, player movement and basic functionality~~
+* ~~Interactables(projectiles and more) system~~
+* ~~Simple Enemies~~ 
 * "Room" functionality
 * Level generation 
 * Gameplay loop
