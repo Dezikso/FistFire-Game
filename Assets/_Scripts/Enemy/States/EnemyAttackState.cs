@@ -48,8 +48,10 @@ public class EnemyAttackState : EnemyBaseState
     {
         if (shootTimer > enemy.enemyStats.fireRate)
         {
-            GameObject poolObject = PoolManager.Instance.SpawnFromPool(enemy.enemyStats.projectileType, enemy.AttackRoot.position, Quaternion.identity);
+            Vector3 spawnPos = enemy.transform.position + enemy.transform.forward * 1.5f;
+            GameObject poolObject = PoolManager.Instance.SpawnFromPool(enemy.enemyStats.projectileType, spawnPos, enemy.transform.rotation);
             poolObject.GetComponent<EnemyProjectile>().Initialize(enemy.transform.forward, -enemy.enemyStats.damage, enemy.enemyStats.projectileSpeed);
+
             shootTimer = 0;
         }
     }

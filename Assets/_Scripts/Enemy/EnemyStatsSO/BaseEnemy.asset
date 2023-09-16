@@ -15,7 +15,7 @@ MonoBehaviour:
   maxHealth: 100
   sightDistance: 20
   fieldOfView: 85
-  eyeHeight: 0.5
+  eyeHeight: 1
   fireRate: 1
   damage: 10
   projectileSpeed: 5
