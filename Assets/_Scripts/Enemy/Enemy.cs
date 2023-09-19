@@ -27,7 +27,9 @@ public class Enemy : MonoBehaviour
     {
         stateMachine = GetComponent<EnemyStateMachine>();
         agent = GetComponent<NavMeshAgent>();
-        player = FindObjectOfType<PlayerHealth>().gameObject;
+
+        PlayerHealth playerHealth = FindObjectOfType<PlayerHealth>();
+        player = playerHealth?.gameObject;
 
         stateMachine.Initialize();
     }
