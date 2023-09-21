@@ -8,7 +8,7 @@ public class GameStateMachine : MonoBehaviour
 
     public void Initialize()
     {
-        //set initial state
+        ChangeState(new SetupLevelState());
     }
 
     private void Update()

@@ -6,14 +6,22 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private string activeState;
-
+    [SerializeField] private GameObject[] platforms;
+    [SerializeField] private Transform playerSpawn;
+    public GameObject[] Platforms { get => platforms; }
+    public Transform PlayerSpawn { get => playerSpawn; }
+    
     private GameStateMachine stateMachine;
-    //Various values related to different states
-    //Maybe set up as a multiple scriptableObjects
+    
+    public int activePlatformId;
+    public GameObject player;
+    
 
     private void Awake()
     {
         stateMachine = GetComponent<GameStateMachine>();
+        PlayerController playerController = FindObjectOfType<PlayerController>();
+        player = playerController?.gameObject;
 
         stateMachine.Initialize();
     }
@@ -21,7 +29,9 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         activeState = stateMachine.activeState.ToString();
-
     }
 
 }
+
+
+
