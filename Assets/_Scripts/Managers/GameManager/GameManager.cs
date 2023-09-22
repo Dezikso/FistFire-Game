@@ -6,15 +6,16 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private string activeState;
-    [SerializeField] private GameObject[] platforms;
-    [SerializeField] private Transform playerSpawn;
-    public GameObject[] Platforms { get => platforms; }
+    [SerializeField] private Transform playerSpawn;     //replace with the one on platform
+
     public Transform PlayerSpawn { get => playerSpawn; }
     
     private GameStateMachine stateMachine;
-    
+
+    public GameObject activePlatform;
     public int activePlatformId;
     public GameObject player;
+    public GameObject[] platforms;
     
 
     private void Awake()

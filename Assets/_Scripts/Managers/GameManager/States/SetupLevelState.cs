@@ -32,12 +32,14 @@ public class SetupLevelState : GameState
 
     private void SetPlatforms()
     {
-        for (int i = 0; i < gameManager.Platforms.Length; i++)
+        gameManager.activePlatform = gameManager.platforms[gameManager.activePlatformId];
+
+        foreach (GameObject platform in gameManager.platforms)
         {
-            gameManager.Platforms[i].SetActive(false);
+            platform.SetActive(false);
         }
 
-        gameManager.Platforms[gameManager.activePlatformId].SetActive(true);
+        gameManager.activePlatform.SetActive(true);
     }
 
 
