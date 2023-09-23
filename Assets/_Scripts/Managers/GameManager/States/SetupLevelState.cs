@@ -40,6 +40,7 @@ public class SetupLevelState : GameState
         }
 
         gameManager.activePlatform.SetActive(true);
+        gameManager.navMeshSurface.BuildNavMesh();
     }
 
 

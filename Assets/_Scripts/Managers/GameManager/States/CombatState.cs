@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class CombatState : GameState
 {
-    private Platform wave;
+    private Wave wave;
 
     public override void Enter()
     {
-        wave = gameManager.activePlatform.GetComponent<Platform>();
+        wave = gameManager.activePlatform.GetComponent<Wave>();
     }
 
     public override void Exit()

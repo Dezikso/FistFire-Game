@@ -5,6 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName ="WaveData", menuName ="ScriptableObjects/WaveData")]
 public class WaveData : ScriptableObject
 {
-    public GameObject[] enemies;
+    public PoolType[] enemies;
     public float duration;
 }

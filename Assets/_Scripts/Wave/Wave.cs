@@ -2,9 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Platform : MonoBehaviour
+public class Wave : MonoBehaviour
 {
     [SerializeField] private WaveData[] waves;
+    [Header("Enemy spawn range")]
+    [SerializeField] private float xMin;
+    [SerializeField] private float xMax;
+    [SerializeField] private float yMin;
+    [SerializeField] private float yMax;
 
     private int currentWaveId;
     private float waveTimer;
@@ -29,7 +34,7 @@ public class Platform : MonoBehaviour
     {
         if (currentWaveId < waves.Length)
         {
-            Debug.Log("Spawning Wave: " + (currentWaveId + 1) + " Out of: " + waves.Length);
+            SpawnWave();
             currentWaveId++;
             waveTimer = 0;
             if (currentWaveId >= waves.Length)
@@ -46,6 +51,16 @@ public class Platform : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    private void SpawnWave()
+    {
+        Debug.Log("Spawning Wave: " + (currentWaveId + 1) + " Out of: " + waves.Length);
+        foreach (PoolType enemy in waves[currentWaveId].enemies)
+        {
+            PoolManager.Instance.SpawnFromPool(enemy, new Vector3(Random.Range(xMin, xMax), 2, Random.Range(yMin, yMax)), Quaternion.identity);
+        }
+
     }
 
 }
