@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03db696312e286b4fb47da842e333c8d, type: 3}
   m_Name: BaseEnemy
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 50
   sightDistance: 20
   fieldOfView: 85
   eyeHeight: 1

@@ -8,8 +8,8 @@ public class SetupLevelState : GameState
     {
         gameManager.player.GetComponent<CharacterController>().enabled = false;
 
+        SetPlatform();
         ResetPlayerPosition();
-        SetPlatforms();
 
         stateMachine.ChangeState(new CombatState());
     }
@@ -27,10 +27,11 @@ public class SetupLevelState : GameState
 
     private void ResetPlayerPosition()
     {
-        gameManager.player.transform.position = gameManager.PlayerSpawn.position;
+        Platform platform = gameManager.activePlatform.GetComponent<Platform>();
+        gameManager.player.transform.position = platform.playerSpawn.position;
     }
 
-    private void SetPlatforms()
+    private void SetPlatform()
     {
         gameManager.activePlatform = gameManager.platforms[gameManager.activePlatformId];
 

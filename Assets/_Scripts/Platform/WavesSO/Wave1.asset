@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Wave1
   m_EditorClassIdentifier: 
   enemies: 0200000002000000
-  duration: 10
+  duration: 5

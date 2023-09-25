@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -38,6 +39,7 @@ public class Enemy : MonoBehaviour
     {
         currentHealth = enemyStats.maxHealth;
         agent.speed = enemyStats.speed;
+        transform.LookAt(player.transform);
     }
 
     private void Update()
@@ -80,7 +82,7 @@ public class Enemy : MonoBehaviour
     public void ChangeHealth(float healthChange)
     {
         currentHealth -= healthChange;
-        Debug.Log(currentHealth);
+        //Debug.Log(currentHealth);
     }
 
 }

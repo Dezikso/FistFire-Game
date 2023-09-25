@@ -2,9 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Wave : MonoBehaviour
+public class Platform : MonoBehaviour
 {
+    [Header("Platform Data")]
     [SerializeField] private WaveData[] waves;
+    [SerializeField] public Material portalMaterial;
+    [SerializeField] public GameObject portals;
+
+    [Header("Player spawn position")]
+    [SerializeField] public Transform playerSpawn;
+
     [Header("Enemy spawn range")]
     [SerializeField] private float xMin;
     [SerializeField] private float xMax;
@@ -13,11 +20,13 @@ public class Wave : MonoBehaviour
 
     private int currentWaveId;
     private float waveTimer;
+    
     public bool isCompleted;
 
 
     private void OnEnable()
     {
+        portals.SetActive(false);
         currentWaveId = 0;
         isCompleted = false;
     }
@@ -28,6 +37,20 @@ public class Wave : MonoBehaviour
         {
             waveTimer += Time.deltaTime;
         }
+        CheckIsCompleted();
+    }
+
+    private void CheckIsCompleted()
+    {
+        if (currentWaveId >= waves.Length)
+        {
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+            if (enemies.Length <= 0)
+            {
+                isCompleted = true;
+            }
+        }
     }
 
     public void StartNewWave()
@@ -37,18 +60,21 @@ public class Wave : MonoBehaviour
             SpawnWave();
             currentWaveId++;
             waveTimer = 0;
-            if (currentWaveId >= waves.Length)
-            {
-                isCompleted = true;
-            }
+        }
+        else
+        {
+            Debug.Log("Nig");
         }
     }
 
     public bool IsWaveReady()
     {
-        if (waveTimer >= waves[currentWaveId].duration)
+        if (currentWaveId < waves.Length)
         {
-            return true;
+            if (waveTimer >= waves[currentWaveId].duration)
+            {
+                return true;
+            }
         }
         return false;
     }

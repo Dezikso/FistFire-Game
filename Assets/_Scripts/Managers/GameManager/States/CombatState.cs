@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public class CombatState : GameState
 {
-    private Wave wave;
+    private Platform platform;
+    private float startDelayTimer;
 
     public override void Enter()
     {
-        wave = gameManager.activePlatform.GetComponent<Wave>();
+        platform = gameManager.activePlatform.GetComponent<Platform>();
     }
 
     public override void Exit()
@@ -18,17 +20,23 @@ public class CombatState : GameState
 
     public override void Perform()
     {
-        if (!wave.isCompleted)
+        if (startDelayTimer >= 2)
         {
-            if (wave.IsWaveReady())
+            if (!platform.isCompleted)
             {
-                wave.StartNewWave();
+                if (platform.IsWaveReady())
+                {
+                    platform.StartNewWave();
+                }
+            }
+            else
+            {
+                stateMachine.ChangeState(new VictoryState());
             }
         }
         else
         {
-            Debug.Log("End");
-            //stateMachine.ChangeState(new )
+            startDelayTimer += Time.deltaTime;
         }
     }
 

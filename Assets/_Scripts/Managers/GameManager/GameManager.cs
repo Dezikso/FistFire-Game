@@ -8,14 +8,12 @@ public class GameManager : MonoBehaviour
 {
     [Header("Variables")]
     [SerializeField] private string activeState;
-    [SerializeField] private Transform playerSpawn;     //replace with the one on platform
-    public Transform PlayerSpawn { get => playerSpawn; }
     [SerializeField] public NavMeshSurface navMeshSurface;  
     [Header("Platforms")]
     [SerializeField] public GameObject[] platforms;   
     
-    private GameStateMachine stateMachine;
-
+    
+    [HideInInspector] public GameStateMachine stateMachine;
     [HideInInspector] public GameObject activePlatform;
     [HideInInspector] public int activePlatformId;
     [HideInInspector] public GameObject player;

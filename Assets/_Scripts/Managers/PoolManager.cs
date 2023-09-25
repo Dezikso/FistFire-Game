@@ -23,7 +23,7 @@ public class PoolManager : MonoBehaviour
     #endregion
 
     [SerializeField] private List<Pool> pools;
-    [SerializeField]private Dictionary<PoolType, Queue<GameObject>> poolDictionary;
+    [SerializeField] private Dictionary<PoolType, Queue<GameObject>> poolDictionary;
 
 
     private void Start()
