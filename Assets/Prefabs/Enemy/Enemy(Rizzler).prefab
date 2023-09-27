@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4823115455824176046}
   - component: {fileID: 4065897549360033850}
   - component: {fileID: 5316221338086067302}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 6055101782341736105}
   - component: {fileID: 38444786810931247}
   - component: {fileID: 6998448250468928526}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Eyebrow (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,7 +176,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4275578691171752563}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Face
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,7 +212,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5127619416105450705}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AttackRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -247,7 +247,7 @@ GameObject:
   - component: {fileID: 30559027884969309}
   - component: {fileID: 666579463502570928}
   - component: {fileID: 3015187277270233588}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy(Rizzler)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -352,7 +352,7 @@ GameObject:
   - component: {fileID: 2564620030747792093}
   - component: {fileID: 6004179601832395320}
   - component: {fileID: 6318904645244647002}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Eye (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -435,7 +435,7 @@ GameObject:
   - component: {fileID: 5001437388882070515}
   - component: {fileID: 325955148903626741}
   - component: {fileID: 2239104869878318534}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Eyebrow (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -518,7 +518,7 @@ GameObject:
   - component: {fileID: 3561034373970557795}
   - component: {fileID: 7980485332639073770}
   - component: {fileID: 4649237739424231687}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -601,7 +601,7 @@ GameObject:
   - component: {fileID: 3841413482478256160}
   - component: {fileID: 1889234683047963285}
   - component: {fileID: 748721188465880792}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Eyebrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -1,17 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
+using System;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
-{
-    [SerializeField] private Image healthBarFront;
-    [SerializeField] private TextMeshProUGUI healthBarText;
-
+{   
     private PlayerStats playerStats;
     private float health;
+
+    public static Action<float> onHealthChange;
+    public static Action onPlayerDeath;
 
     private void OnEnable()
     {
@@ -26,7 +22,7 @@ public class PlayerHealth : MonoBehaviour
     private void Start()
     {
         health = playerStats.maxHealth;
-        ChangeHealthUI();
+        onHealthChange?.Invoke(health);
     }
 
     private void Update()
@@ -39,16 +35,19 @@ public class PlayerHealth : MonoBehaviour
         playerStats = stats;
     }
 
-    private void ChangeHealthUI()
-    {
-        healthBarFront.fillAmount = health/playerStats.maxHealth;
-        healthBarText.text = health/playerStats.maxHealth * 100 + "%";
-    }
-
     public void ChangeHealth(float _health)
     {
         health += _health;
-        ChangeHealthUI();
+        onHealthChange?.Invoke(health);
+        IsDead();
+    }
+
+    private void IsDead()
+    {
+        if(health <= 0)
+        {
+            onPlayerDeath?.Invoke();
+        }
     }
 
 }

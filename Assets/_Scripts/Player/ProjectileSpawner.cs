@@ -12,6 +12,15 @@ public class ProjectileSpawner : MonoBehaviour
     private InputManager inputManager;
 
 
+    private void OnEnable()
+    {
+        PlayerHealth.onPlayerDeath += OnPlayerDeath;
+    }
+    private void OnDisable()
+    {
+        PlayerHealth.onPlayerDeath -= OnPlayerDeath;
+    }
+
     private void Start()
     {
         poolManager = PoolManager.Instance;
@@ -30,5 +39,10 @@ public class ProjectileSpawner : MonoBehaviour
         {
             GameObject poolObject = poolManager.SpawnFromPool(PoolType.Projectile, projectileRoot.position, projectileRoot.rotation);
         }
+    }
+
+    private void OnPlayerDeath()
+    {
+        gameObject.SetActive(false);
     }
 }

@@ -19,6 +19,16 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public GameObject player;
     
 
+    private void OnEnable()
+    {
+        PlayerHealth.onPlayerDeath += GameOver;
+    }
+
+    private void OnDisable()
+    {
+        PlayerHealth.onPlayerDeath -= GameOver;
+    }
+
     private void Awake()
     {
         stateMachine = GetComponent<GameStateMachine>();
@@ -31,6 +41,11 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         activeState = stateMachine.activeState.ToString();
+    }
+
+    private void GameOver()
+    {
+        stateMachine.ChangeState(new GameOverState());
     }
 
 }

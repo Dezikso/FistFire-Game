@@ -6,6 +6,7 @@ public class Platform : MonoBehaviour
 {
     [Header("Platform Data")]
     [SerializeField] private WaveData[] waves;
+    [SerializeField] private LayerMask enemyLayer;
     [SerializeField] public Material portalMaterial;
     [SerializeField] public GameObject portals;
 
@@ -44,7 +45,7 @@ public class Platform : MonoBehaviour
     {
         if (currentWaveId >= waves.Length)
         {
-            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            Collider[] enemies = Physics.OverlapSphere(transform.position, 50f, enemyLayer);
 
             if (enemies.Length <= 0)
             {

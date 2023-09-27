@@ -48,6 +48,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves: []
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 128
   portalMaterial: {fileID: 2100000, guid: 77bc1e4f1b5b20446be13441a06a4529, type: 2}
   portals: {fileID: 1504571138242898303}
   playerSpawn: {fileID: 2376791216982761276}

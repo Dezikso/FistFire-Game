@@ -22,11 +22,13 @@ public class PlayerController : MonoBehaviour
     private void OnEnable()
     {
         PlayerStatsManager.onStatsChange += UpdateStats;
+        PlayerHealth.onPlayerDeath += OnPlayerDeath;
     }
 
     private void OnDisable()
     {
         PlayerStatsManager.onStatsChange -= UpdateStats;
+        PlayerHealth.onPlayerDeath -= OnPlayerDeath;
     }
 
     private void Start()
@@ -88,6 +90,11 @@ public class PlayerController : MonoBehaviour
     private void UpdateStats(PlayerStats stats)
     {
         playerStats = stats;
+    }
+
+    private void OnPlayerDeath()
+    {
+        gameObject.SetActive(false);
     }
 
 }
