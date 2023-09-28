@@ -43,4 +43,9 @@ public class InputManager : MonoBehaviour
         return playerInput.Player.Interact.WasPerformedThisFrame();
     }
 
+    public bool IsCrouching()
+    {
+        return playerInput.Player.Crouch.WasPerformedThisFrame();
+    }
+
 }

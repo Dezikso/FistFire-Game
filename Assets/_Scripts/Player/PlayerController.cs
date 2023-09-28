@@ -6,17 +6,21 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float jumpHeight = 1.0f;
+    [SerializeField] private float crouchHeight = 0.75f;
     [SerializeField] private float gravityValue = -9.81f;
 
     [Tooltip("Parent of all objects that need to be facing the same direction as playerfollowcamera")]
     [SerializeField] Transform cameraLook;
 
     private CharacterController controller;
+    private CapsuleCollider playerCollider;
     private InputManager inputManager;
     private PlayerStats playerStats;
     private Transform cameraTransform;
+    private float playerHeight;
     private Vector3 moveValue;
     private Vector3 velocity;
+    private bool isCrouching;
 
 
     private void OnEnable()
@@ -35,8 +39,9 @@ public class PlayerController : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         inputManager = GetComponent<InputManager>();
+        playerCollider = GetComponent<CapsuleCollider>();
         cameraTransform = Camera.main.transform;
-
+        playerHeight = controller.height;
         
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -44,6 +49,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        Crouch();
         CalculateMovement();
         ApplyGravity();
         Jump();
@@ -95,6 +101,25 @@ public class PlayerController : MonoBehaviour
     private void OnPlayerDeath()
     {
         gameObject.SetActive(false);
+    }
+
+    private void Crouch()
+    {
+        if (inputManager.IsCrouching())  
+        {
+            isCrouching = !isCrouching;
+
+            if (isCrouching)
+            {
+                controller.height = crouchHeight;
+                playerCollider.height = crouchHeight;
+            }
+            else
+            {
+                controller.height = playerHeight;
+                playerCollider.height = playerHeight;
+            }
+        }
     }
 
 }
