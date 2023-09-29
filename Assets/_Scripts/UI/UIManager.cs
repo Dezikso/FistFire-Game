@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using System;
 
 public class UIManager : MonoBehaviour
 {
@@ -35,7 +34,7 @@ public class UIManager : MonoBehaviour
     private void ChangeHealthUI(float health)
     {
         healthBarFront.fillAmount = health/playerStats.maxHealth;
-        healthBarText.text = health/playerStats.maxHealth * 100 + "%";
+        healthBarText.text = health/playerStats.maxHealth * 100 + " HP";
     }
 
     private void DisplayGameOverUI()

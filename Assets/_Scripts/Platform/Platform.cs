@@ -9,6 +9,7 @@ public class Platform : MonoBehaviour
     [SerializeField] private LayerMask enemyLayer;
     [SerializeField] public Material portalMaterial;
     [SerializeField] public GameObject portals;
+    [SerializeField] public GameObject chest;
 
     [Header("Player spawn position")]
     [SerializeField] public Transform playerSpawn;
@@ -28,6 +29,7 @@ public class Platform : MonoBehaviour
     private void OnEnable()
     {
         portals.SetActive(false);
+        chest.SetActive(false);
         currentWaveId = 0;
         isCompleted = false;
     }

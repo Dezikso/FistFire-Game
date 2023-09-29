@@ -10,6 +10,9 @@ public class VictoryState : GameState
     {
         platform = gameManager.activePlatform.GetComponent<Platform>();
         platform.portals.SetActive(true);
+        platform.chest.SetActive(true);
+
+        SetupChest();
     }
 
     public override void Exit()
@@ -20,5 +23,10 @@ public class VictoryState : GameState
     public override void Perform()
     {
         
+    }
+
+    private void SetupChest()
+    {
+        platform.chest.GetComponent<Chest>().PlayerStatsManager = gameManager.player;
     }
 }

@@ -1188,6 +1188,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 969127866}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &562407392 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6047415671189427311, guid: 29ef484ad3efeb94db1e3ba6655a7cfe,
+    type: 3}
+  m_PrefabInstance: {fileID: 969127866}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &700981939
 GameObject:
   m_ObjectHideFlags: 0
@@ -1764,6 +1770,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 562407392}
   - {fileID: 1735233581}
   - {fileID: 1906476985}
   - {fileID: 1143642603}
@@ -1775,7 +1782,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 895710421}
     m_Modifications:
     - target: {fileID: 3015187277270233588, guid: 29ef484ad3efeb94db1e3ba6655a7cfe,
         type: 3}
@@ -1796,7 +1803,7 @@ PrefabInstance:
     - target: {fileID: 6047415671189427311, guid: 29ef484ad3efeb94db1e3ba6655a7cfe,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -22.9
+      value: 8.1
       objectReference: {fileID: 0}
     - target: {fileID: 6047415671189427311, guid: 29ef484ad3efeb94db1e3ba6655a7cfe,
         type: 3}
@@ -1806,7 +1813,7 @@ PrefabInstance:
     - target: {fileID: 6047415671189427311, guid: 29ef484ad3efeb94db1e3ba6655a7cfe,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 69.11
+      value: 9.110001
       objectReference: {fileID: 0}
     - target: {fileID: 6047415671189427311, guid: 29ef484ad3efeb94db1e3ba6655a7cfe,
         type: 3}
@@ -2748,7 +2755,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 999%
+  m_text: 999 HP
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4686,7 +4693,7 @@ PrefabInstance:
     - target: {fileID: 4510887563598320481, guid: 64532e9bb59181a40a6d8f96fdcc0a98,
         type: 3}
       propertyPath: pools.Array.data[2].size
-      value: 3
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4510887563598320481, guid: 64532e9bb59181a40a6d8f96fdcc0a98,
         type: 3}
@@ -4786,4 +4793,3 @@ SceneRoots:
   - {fileID: 734224816}
   - {fileID: 1629632864}
   - {fileID: 1615831551}
-  - {fileID: 969127866}

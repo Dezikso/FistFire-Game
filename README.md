@@ -23,7 +23,7 @@ FistFire is a first person rouge-lite game based around creating projectiles and
 * ~~"Room" functionality~~
 * ~~Level generation~~
 * ~~Gameplay loop~~
-* Chests and simple items
+* ~~Chests and simple items~~
 * Dificulty multiplier/speedrun timer
 * First bossfight
 * Art, sfx and UI (TODO)
