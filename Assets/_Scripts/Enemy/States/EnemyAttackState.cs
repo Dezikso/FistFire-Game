@@ -31,7 +31,7 @@ public class EnemyAttackState : EnemyBaseState
             Shoot();
             Dodge();
 
-            enemy.LastKnownPos = enemy.Player.transform.position;
+            enemy.lastKnownPos = enemy.Player.transform.position;
         }
         else
         {
@@ -60,7 +60,7 @@ public class EnemyAttackState : EnemyBaseState
 
     private void Dodge()
     {
-        if (dodgeTimer > Random.Range(2,6))
+        if (dodgeTimer > Random.Range(enemy.enemyStats.minDodgeInterval, enemy.enemyStats.maxDodgeInterval))
         {
             enemy.Agent.SetDestination(enemy.transform.position + (Random.insideUnitSphere * enemy.enemyStats.stepDistance));
             dodgeTimer = 0;

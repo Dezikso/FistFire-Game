@@ -8,29 +8,32 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(EnemyStateMachine), typeof(NavMeshAgent))]
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private string activeState;
     [SerializeField] private Transform attackRoot;
-    public Transform AttackRoot { get => attackRoot; }
+    [SerializeField] private EnemyStats baseEnemyStats;
 
     private EnemyStateMachine stateMachine;
     private NavMeshAgent agent;
-    public NavMeshAgent Agent {get => agent;}
     private GameObject player;
-    public GameObject Player { get => player; }
-    private Vector3 lastKnownPos;
-    public Vector3 LastKnownPos { get => lastKnownPos; set => lastKnownPos = value; }
+    private PlayerStatsManager playerStatsManager;
     private float currentHealth;
 
-    public EnemyStats enemyStats;
+    public Transform AttackRoot { get => attackRoot; }
+    public NavMeshAgent Agent {get => agent;}
+    public GameObject Player { get => player; }
+    
+    
+    [HideInInspector] public EnemyStats enemyStats;
+    [HideInInspector] public Vector3 lastKnownPos;
 
 
     private void Awake()
     {
         stateMachine = GetComponent<EnemyStateMachine>();
         agent = GetComponent<NavMeshAgent>();
+        enemyStats = baseEnemyStats;
 
-        PlayerHealth playerHealth = FindObjectOfType<PlayerHealth>();
-        player = playerHealth?.gameObject;
+        playerStatsManager = FindObjectOfType<PlayerStatsManager>();
+        player = playerStatsManager?.gameObject;
 
         stateMachine.Initialize();
     }
@@ -41,11 +44,13 @@ public class Enemy : MonoBehaviour
         agent.speed = enemyStats.speed;
         transform.LookAt(player.transform);
     }
+    private void OnDisable()
+    {
+        
+    }
 
     private void Update()
     {
-        activeState = stateMachine.activeState.ToString();
-
         if (currentHealth <= 0)
         {
             gameObject.SetActive(false);
@@ -84,5 +89,14 @@ public class Enemy : MonoBehaviour
         currentHealth -= healthChange;
         //Debug.Log(currentHealth);
     }
+
+    // public void MultiplyDificulty(PlayerStats stats)
+    // {
+    //     float multiplier = stats.difficultyMultiplier;
+    //     enemyStats.maxHealth *= multiplier;
+    //     enemyStats.fireRate *= multiplier;
+    //     enemyStats.damage *= multiplier;
+    //     enemyStats.speed *= multiplier;
+    // }
 
 }

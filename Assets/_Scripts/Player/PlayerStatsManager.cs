@@ -9,7 +9,7 @@ public class PlayerStatsManager : MonoBehaviour
     [SerializeField] private PlayerStats basePlayerStats;
 
     private PlayerStats playerStats;
-
+    
     public static Action<PlayerStats> onStatsChange;
 
 
@@ -26,6 +26,7 @@ public class PlayerStatsManager : MonoBehaviour
         playerStats.damage += _playerStats.damage;
         playerStats.speed += _playerStats.speed;
         playerStats.fireRate += _playerStats.fireRate;
+        playerStats.difficultyMultiplier += _playerStats.difficultyMultiplier;
 
         onStatsChange?.Invoke(playerStats);
     }

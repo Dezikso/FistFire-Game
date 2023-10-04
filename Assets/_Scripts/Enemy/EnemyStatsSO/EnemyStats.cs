@@ -9,7 +9,7 @@ public class EnemyStats : ScriptableObject
     public float maxHealth = 100f;
 
     [Header("Sight Values")]
-    public float sightDistance = 20f;
+    public float sightDistance = 25f;
     public float fieldOfView = 85f;
     public float eyeHeight = 1f;
 
@@ -20,6 +20,8 @@ public class EnemyStats : ScriptableObject
     public PoolType projectileType = PoolType.EnemyProjectile1;
 
     [Header("Dodge Values")]
+    public float minDodgeInterval = 1f;
+    public float maxDodgeInterval = 6f;
     public float stepDistance = 5f;
     public float searchTime = 5f;
 

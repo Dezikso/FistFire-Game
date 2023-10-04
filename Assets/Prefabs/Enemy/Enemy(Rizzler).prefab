@@ -338,9 +338,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbbd9710a5673c8478de0b7892fade22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeState: 
   attackRoot: {fileID: 5127619416105450705}
+  baseEnemyStats: {fileID: 11400000, guid: dc8064261974cc242965196f75575343, type: 2}
   enemyStats: {fileID: 11400000, guid: dc8064261974cc242965196f75575343, type: 2}
+  lastKnownPos: {x: 0, y: 0, z: 0}
 --- !u!1 &5691479367830626865
 GameObject:
   m_ObjectHideFlags: 0

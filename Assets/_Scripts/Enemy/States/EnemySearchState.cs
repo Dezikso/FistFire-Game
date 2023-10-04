@@ -10,7 +10,7 @@ public class EnemySearchState : EnemyBaseState
 
     public override void Enter()
     {
-        enemy.Agent.SetDestination(enemy.LastKnownPos);
+        enemy.Agent.SetDestination(enemy.lastKnownPos);
     }
 
     public override void Exit()

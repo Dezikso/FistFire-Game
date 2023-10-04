@@ -17,6 +17,7 @@ MonoBehaviour:
   speed: -1
   projectileSpeed: 0
   fireRate: 0
+  difficultyMultiplier: 0.1
   sprite: {fileID: 0}
   name: Item1
   description: 
