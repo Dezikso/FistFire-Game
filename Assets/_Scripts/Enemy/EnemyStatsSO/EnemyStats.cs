@@ -27,5 +27,34 @@ public class EnemyStats : ScriptableObject
 
     [Header("Agent Settings")]
     public float speed = 3.5f;
+    
+
+    private void Initialize(EnemyStats _enemyStats)
+    {
+        this.maxHealth = _enemyStats.maxHealth;
+
+        this.sightDistance = _enemyStats.sightDistance;
+        this.fieldOfView = _enemyStats.fieldOfView;
+        this.eyeHeight = _enemyStats.eyeHeight
+        ;
+        this.fireRate = _enemyStats.fireRate;
+        this.damage = _enemyStats.damage;
+        this.projectileSpeed = _enemyStats.projectileSpeed;
+        this.projectileType = _enemyStats.projectileType;
+        
+        this.minDodgeInterval = _enemyStats.minDodgeInterval;
+        this.maxDodgeInterval = _enemyStats.maxDodgeInterval;
+        this.stepDistance = _enemyStats.stepDistance;
+        this.searchTime = _enemyStats.searchTime;
+
+        this.speed = _enemyStats.speed;
+    }
+
+    public static EnemyStats CreateInstance(EnemyStats _enemyStats)
+    {
+        var data = CreateInstance<EnemyStats>();
+        data.Initialize(_enemyStats);
+        return data; 
+    }
 
 }

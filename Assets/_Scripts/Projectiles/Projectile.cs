@@ -24,6 +24,10 @@ public class Projectile : Interactable
     {
         PlayerStatsManager.onStatsChange += UpdateStats;
     }
+    private void OnDestroy()
+    {
+        PlayerStatsManager.onStatsChange -= UpdateStats;
+    }
 
     private void OnEnable()
     {

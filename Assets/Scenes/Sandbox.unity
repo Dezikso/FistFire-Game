@@ -4597,6 +4597,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5469214434236727472, guid: 774e4ac956a85b64ea707e620d9891ca,
+        type: 3}
+      propertyPath: crouchHeight
+      value: 1.25
+      objectReference: {fileID: 0}
     - target: {fileID: 6317294251807992069, guid: 774e4ac956a85b64ea707e620d9891ca,
         type: 3}
       propertyPath: m_Enabled

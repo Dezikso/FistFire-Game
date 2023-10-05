@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerStatsManager : MonoBehaviour
 {
@@ -26,7 +25,6 @@ public class PlayerStatsManager : MonoBehaviour
         playerStats.damage += _playerStats.damage;
         playerStats.speed += _playerStats.speed;
         playerStats.fireRate += _playerStats.fireRate;
-        playerStats.difficultyMultiplier += _playerStats.difficultyMultiplier;
 
         onStatsChange?.Invoke(playerStats);
     }

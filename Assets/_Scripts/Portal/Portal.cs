@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -7,7 +8,7 @@ public class Portal : Interactable
 {
     private GameManager gameManager;
     private int platformId;
-
+    
 
     private void Awake()
     {
@@ -28,7 +29,7 @@ public class Portal : Interactable
     private void Initialize()
     {
         int maxRange = gameManager.platforms.Length - 1;
-        platformId = Random.Range(0, maxRange);
+        platformId = UnityEngine.Random.Range(0, maxRange);
 
         SetAppearance();
     }

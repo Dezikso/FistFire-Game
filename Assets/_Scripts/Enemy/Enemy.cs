@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
@@ -16,26 +17,34 @@ public class Enemy : MonoBehaviour
     private GameObject player;
     private PlayerStatsManager playerStatsManager;
     private float currentHealth;
+    private float difficultyMultiplier = 1.1f;
 
     public Transform AttackRoot { get => attackRoot; }
     public NavMeshAgent Agent {get => agent;}
     public GameObject Player { get => player; }
     
     
-    [HideInInspector] public EnemyStats enemyStats;
+    public EnemyStats enemyStats;
     [HideInInspector] public Vector3 lastKnownPos;
 
 
     private void Awake()
     {
+        GameManager.onNextLevel += UpdateDificulty;
+
         stateMachine = GetComponent<EnemyStateMachine>();
         agent = GetComponent<NavMeshAgent>();
-        enemyStats = baseEnemyStats;
+        enemyStats = EnemyStats.CreateInstance(baseEnemyStats);
 
         playerStatsManager = FindObjectOfType<PlayerStatsManager>();
         player = playerStatsManager?.gameObject;
 
         stateMachine.Initialize();
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.onNextLevel -= UpdateDificulty;
     }
 
     private void OnEnable()
@@ -44,16 +53,17 @@ public class Enemy : MonoBehaviour
         agent.speed = enemyStats.speed;
         transform.LookAt(player.transform);
     }
-    private void OnDisable()
-    {
-        
-    }
 
     private void Update()
     {
         if (currentHealth <= 0)
         {
             gameObject.SetActive(false);
+        }
+
+        if (Keyboard.current.lKey.wasPressedThisFrame)
+        {
+            UpdateDificulty();
         }
         
     }
@@ -90,13 +100,17 @@ public class Enemy : MonoBehaviour
         //Debug.Log(currentHealth);
     }
 
-    // public void MultiplyDificulty(PlayerStats stats)
-    // {
-    //     float multiplier = stats.difficultyMultiplier;
-    //     enemyStats.maxHealth *= multiplier;
-    //     enemyStats.fireRate *= multiplier;
-    //     enemyStats.damage *= multiplier;
-    //     enemyStats.speed *= multiplier;
-    // }
+    private void UpdateDificulty()
+    {
+        enemyStats.maxHealth *= difficultyMultiplier;
+        enemyStats.fireRate *= difficultyMultiplier;
+        enemyStats.damage *= difficultyMultiplier;
+        enemyStats.speed *= difficultyMultiplier; 
+
+        if (enemyStats.maxDodgeInterval > 0.5f)
+        {
+            enemyStats.maxDodgeInterval /= difficultyMultiplier;
+        }   
+    }
 
 }

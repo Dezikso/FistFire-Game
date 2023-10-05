@@ -41,8 +41,7 @@ public class PoolManager : MonoBehaviour
 
             for (int i = 0; i < pool.size; i++)
             {
-                GameObject obj = Instantiate(pool.prefab);
-                obj.transform.parent = this.transform;
+                GameObject obj = Instantiate(pool.prefab, this.transform);
                 obj.SetActive(false);
                 objectPool.Enqueue(obj);
             }

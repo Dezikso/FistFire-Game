@@ -11,9 +11,7 @@ public class PlayerStats : ScriptableObject
     public float speed;
     public float projectileSpeed;
     public float fireRate;
-    [Header("Difficulty values")]
-    public float difficultyMultiplier;
-
+    
 
     private void Initialize(PlayerStats _playerStats)
     {
@@ -22,7 +20,6 @@ public class PlayerStats : ScriptableObject
         this.speed = _playerStats.speed;
         this.projectileSpeed = _playerStats.projectileSpeed;
         this.fireRate = _playerStats.fireRate;
-        this.difficultyMultiplier = _playerStats.difficultyMultiplier;
     }
 
     public static PlayerStats CreateInstance(PlayerStats _playerStats)

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b98171d746186234eaa2bb374299b88f, type: 3}
   m_Name: BasePlayerStats
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 99999
   damage: 10
   speed: 3
   projectileSpeed: 10

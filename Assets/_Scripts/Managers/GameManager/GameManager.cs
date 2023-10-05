@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.AI.Navigation;
@@ -17,7 +18,8 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public GameObject activePlatform;
     [HideInInspector] public int activePlatformId;
     [HideInInspector] public GameObject player;
-    
+
+    public static Action onNextLevel;
 
     private void OnEnable()
     {
@@ -46,6 +48,11 @@ public class GameManager : MonoBehaviour
     private void GameOver()
     {
         stateMachine.ChangeState(new GameOverState());
+    }
+
+    public void OnNextLevel()
+    {
+        onNextLevel?.Invoke();
     }
 
 }
