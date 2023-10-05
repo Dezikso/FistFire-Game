@@ -2,7 +2,7 @@
 
 ## Introduction
 
-FistFire is a prototype game made to solidify and showcase the skills I acquired while learning unity. It serves as a milestone in my learning journey as a game developer. I won't be focusing on level design, etc. for now as I'm mainly focusing on programming.
+FistFire is a prototype game made to solidify and showcase the skills I acquired while learning unity. It serves as a milestone in my learning journey as a game developer. I won't be focusing on level design, sfx, etc. for now as I'm mainly focusing on programming.
 
 ## Description
 
@@ -24,9 +24,10 @@ FistFire is a first person rouge-lite game based around creating projectiles and
 * ~~Level generation~~
 * ~~Gameplay loop~~
 * ~~Chests and simple items~~
-* Dificulty multiplier/speedrun timer
-* First bossfight
-* Art, sfx and UI (TODO)
+* ~~Dificulty multiplier~~
+* Basic UI
+* Playable (No art, no sound, basic unbalanced levels)
+* Art, sfx and Music (TODO in the future)
 
 ## Specs/Assets used:
 
