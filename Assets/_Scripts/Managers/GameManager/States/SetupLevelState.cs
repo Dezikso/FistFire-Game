@@ -28,7 +28,7 @@ public class SetupLevelState : GameState
     private void ResetPlayerPosition()
     {
         Platform platform = gameManager.activePlatform.GetComponent<Platform>();
-        gameManager.player.transform.position = platform.playerSpawn.position;
+        gameManager.player.transform.position = platform.PlayerSpawn.position;
     }
 
     private void SetPlatform()

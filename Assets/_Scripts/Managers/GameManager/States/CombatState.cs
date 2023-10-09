@@ -22,7 +22,7 @@ public class CombatState : GameState
     {
         if (startDelayTimer >= 2)
         {
-            if (!platform.isCompleted)
+            if (!platform.IsCompleted)
             {
                 if (platform.IsWaveReady())
                 {

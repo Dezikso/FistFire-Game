@@ -16,15 +16,14 @@ public class Enemy : MonoBehaviour
     private EnemyStateMachine stateMachine;
     private NavMeshAgent agent;
     private GameObject player;
-    
     private PlayerStatsManager playerStatsManager;
     private float currentHealth;
     private float difficultyMultiplier = 1.1f;
+
     public Transform AttackRoot { get => attackRoot; }
-    public NavMeshAgent Agent {get => agent;}
+    public NavMeshAgent Agent { get => agent; }
     public GameObject Player { get => player; }
-    
-    
+      
     [HideInInspector] public EnemyStats enemyStats;
     [HideInInspector] public Vector3 lastKnownPos;
 

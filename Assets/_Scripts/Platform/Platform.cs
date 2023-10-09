@@ -8,9 +8,9 @@ public class Platform : MonoBehaviour
     [Header("Platform Data")]
     [SerializeField] private WaveData[] waves;
     [SerializeField] private LayerMask enemyLayer;
-    [SerializeField] public Material portalMaterial;
-    [SerializeField] public GameObject portals;
-    [SerializeField] public GameObject chest;
+    public Material portalMaterial;
+    public GameObject portals;
+    public GameObject chest;
 
     [Header("Enemy spawn range")]
     [SerializeField] private float spawnRadius;
@@ -20,12 +20,14 @@ public class Platform : MonoBehaviour
     [SerializeField] private float yMax;
 
     [Header("Player spawn position")]
-    [SerializeField] public Transform playerSpawn;
+    [SerializeField] private Transform playerSpawn;
 
     private int currentWaveId;
     private float waveTimer;
-    
-    public bool isCompleted;
+    private bool isCompleted;
+
+    public Transform PlayerSpawn { get => playerSpawn; }
+    public bool IsCompleted { get => isCompleted; }
 
 
     private void OnEnable()

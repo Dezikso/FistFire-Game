@@ -34,7 +34,7 @@ public class UIManager : MonoBehaviour
     private void ChangeHealthUI(float health)
     {
         healthBarFront.fillAmount = health/playerStats.maxHealth;
-        healthBarText.text = health/playerStats.maxHealth * 100 + " HP";
+        healthBarText.text = health/playerStats.maxHealth * 100 + "%";
     }
 
     private void DisplayGameOverUI()

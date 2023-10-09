@@ -7,12 +7,10 @@ using UnityEngine;
 [RequireComponent(typeof(GameStateMachine))]
 public class GameManager : MonoBehaviour
 {
-    [Header("Variables")]
     [SerializeField] private string activeState;
-    [SerializeField] public NavMeshSurface navMeshSurface;  
-    [Header("Platforms")]
-    [SerializeField] public GameObject[] platforms;   
     
+    public NavMeshSurface navMeshSurface;  
+    public GameObject[] platforms;   
     
     [HideInInspector] public GameStateMachine stateMachine;
     [HideInInspector] public GameObject activePlatform;
