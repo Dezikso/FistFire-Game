@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Platform : MonoBehaviour
 {
@@ -11,14 +12,15 @@ public class Platform : MonoBehaviour
     [SerializeField] public GameObject portals;
     [SerializeField] public GameObject chest;
 
-    [Header("Player spawn position")]
-    [SerializeField] public Transform playerSpawn;
-
     [Header("Enemy spawn range")]
+    [SerializeField] private float spawnRadius;
     [SerializeField] private float xMin;
     [SerializeField] private float xMax;
     [SerializeField] private float yMin;
     [SerializeField] private float yMax;
+
+    [Header("Player spawn position")]
+    [SerializeField] public Transform playerSpawn;
 
     private int currentWaveId;
     private float waveTimer;
@@ -41,6 +43,8 @@ public class Platform : MonoBehaviour
             waveTimer += Time.deltaTime;
         }
         CheckIsCompleted();
+
+        GetRandomNavMeshPoint();
     }
 
     private void CheckIsCompleted()
@@ -89,7 +93,22 @@ public class Platform : MonoBehaviour
         {
             PoolManager.Instance.SpawnFromPool(enemy, new Vector3(Random.Range(xMin, xMax), 2, Random.Range(yMin, yMax)), Quaternion.identity);
         }
+    }
 
+    private Vector3 GetRandomNavMeshPoint()
+    {
+        Vector3 randomPoint = Random.insideUnitSphere+ transform.position * spawnRadius;
+        NavMeshHit hit;
+
+        if (NavMesh.SamplePosition(randomPoint, out hit, spawnRadius, NavMesh.AllAreas))
+        {
+            
+            return hit.position;
+        }
+        else
+        {
+            return Vector3.zero;
+        }
     }
 
 }

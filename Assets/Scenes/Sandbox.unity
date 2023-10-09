@@ -1925,6 +1925,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8488271717250634661, guid: b450bf85ab238a14786a0a9e0808e741,
         type: 3}
+      propertyPath: spawnRadius
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 8488271717250634661, guid: b450bf85ab238a14786a0a9e0808e741,
+        type: 3}
       propertyPath: waves.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -4555,7 +4560,7 @@ PrefabInstance:
     - target: {fileID: 1040897044940737532, guid: 774e4ac956a85b64ea707e620d9891ca,
         type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1040897044940737532, guid: 774e4ac956a85b64ea707e620d9891ca,
         type: 3}
@@ -4565,17 +4570,17 @@ PrefabInstance:
     - target: {fileID: 1176471792063963141, guid: 774e4ac956a85b64ea707e620d9891ca,
         type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2307446844568444762, guid: 774e4ac956a85b64ea707e620d9891ca,
         type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4587926105600725606, guid: 774e4ac956a85b64ea707e620d9891ca,
         type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4798027061682285053, guid: 774e4ac956a85b64ea707e620d9891ca,
         type: 3}
@@ -4660,7 +4665,7 @@ PrefabInstance:
     - target: {fileID: 9132300709520648060, guid: 774e4ac956a85b64ea707e620d9891ca,
         type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

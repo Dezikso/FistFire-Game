@@ -340,6 +340,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackRoot: {fileID: 5127619416105450705}
   baseEnemyStats: {fileID: 11400000, guid: dc8064261974cc242965196f75575343, type: 2}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 256
   enemyStats: {fileID: 11400000, guid: dc8064261974cc242965196f75575343, type: 2}
   lastKnownPos: {x: 0, y: 0, z: 0}
 --- !u!1 &5691479367830626865

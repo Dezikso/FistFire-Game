@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 5469214434236727472}
   - component: {fileID: 452121718359975186}
   - component: {fileID: 5612925235637242493}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -128,8 +128,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d6aa6045456a8c44a70ec58cb9fb91d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBarFront: {fileID: 0}
-  healthBarText: {fileID: 0}
 --- !u!114 &5469214434236727472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,6 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpHeight: 1
+  crouchHeight: 0.75
   gravityValue: -9.81
   cameraLook: {fileID: 5335467238549672339}
 --- !u!114 &452121718359975186
@@ -183,7 +182,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8757745596358057400}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CameraRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -216,7 +215,7 @@ GameObject:
   - component: {fileID: 8893607203332842620}
   - component: {fileID: 224942213315992374}
   - component: {fileID: 6287309964092189705}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -297,7 +296,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7978068822306545633}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ProjectileRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -328,7 +327,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5335467238549672339}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CameraLook
   m_TagString: Untagged
   m_Icon: {fileID: 0}

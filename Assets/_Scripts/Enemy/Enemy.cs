@@ -11,20 +11,21 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private Transform attackRoot;
     [SerializeField] private EnemyStats baseEnemyStats;
+    [SerializeField] private LayerMask playerLayer;
 
     private EnemyStateMachine stateMachine;
     private NavMeshAgent agent;
     private GameObject player;
+    
     private PlayerStatsManager playerStatsManager;
     private float currentHealth;
     private float difficultyMultiplier = 1.1f;
-
     public Transform AttackRoot { get => attackRoot; }
     public NavMeshAgent Agent {get => agent;}
     public GameObject Player { get => player; }
     
     
-    public EnemyStats enemyStats;
+    [HideInInspector] public EnemyStats enemyStats;
     [HideInInspector] public Vector3 lastKnownPos;
 
 
@@ -80,7 +81,7 @@ public class Enemy : MonoBehaviour
                 {
                    Ray ray = new Ray (transform.position + (Vector3.up * enemyStats.eyeHeight), targetDirection);
                    RaycastHit hitInfo = new RaycastHit();
-                    if (Physics.Raycast(ray, out hitInfo, enemyStats.sightDistance))
+                    if (Physics.Raycast(ray, out hitInfo, enemyStats.sightDistance, playerLayer))
                     {
                         if (hitInfo.transform.gameObject == player)
                         {

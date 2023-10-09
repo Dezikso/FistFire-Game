@@ -55,11 +55,11 @@ MonoBehaviour:
   portalMaterial: {fileID: 2100000, guid: 77bc1e4f1b5b20446be13441a06a4529, type: 2}
   portals: {fileID: 1504571138242898303}
   chest: {fileID: 412456501324028069}
-  playerSpawn: {fileID: 2376791216982761276}
   xMin: -15
   xMax: 15
   yMin: -15
   yMax: 15
+  playerSpawn: {fileID: 2376791216982761276}
   isCompleted: 0
 --- !u!1 &1504571138242898303
 GameObject:
