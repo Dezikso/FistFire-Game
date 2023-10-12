@@ -96,6 +96,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useEvents: 0
+  meshRenderer: {fileID: 5777918345864756952}
+  chargeTime: 0.5
+  chargingMaterial: {fileID: 2100000, guid: 77bc1e4f1b5b20446be13441a06a4529, type: 2}
+  readyMaterial: {fileID: 2100000, guid: 613f72d98d32cd74f9a669c85161939f, type: 2}
 --- !u!1 &8070511310130849529
 GameObject:
   m_ObjectHideFlags: 0
@@ -157,7 +161,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 613f72d98d32cd74f9a669c85161939f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

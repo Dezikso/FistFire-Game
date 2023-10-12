@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpHeight = 1.0f;
     [SerializeField] private float crouchHeight = 0.75f;
     [SerializeField] private float gravityValue = -9.81f;
+    [SerializeField] private float dashDistance = 5f;
+    [SerializeField] private float dashDuration = 0.5f;
 
     [Tooltip("Parent of all objects that need to be facing the same direction as playerfollowcamera")]
     [SerializeField] Transform cameraLook;
@@ -49,10 +51,11 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        Crouch();
         CalculateMovement();
         ApplyGravity();
         Jump();
+        Dash();
+        Crouch();
         PerformMovement();
     }
 
@@ -81,26 +84,37 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
-        if (controller.isGrounded && inputManager.JumpedThisFrame())  
+        if (inputManager.JumpedThisFrame())  
         {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravityValue);
+            if (controller.isGrounded)
+            {
+                velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravityValue);
+            }
         }
     }
 
-    private void PerformMovement()
+    private void Dash()
     {
-        controller.Move(moveValue * Time.deltaTime * playerStats.speed);
-        controller.Move(velocity * Time.deltaTime);
-    }
+        if (playerStats.nextDashTime > 0)
+        {
+            playerStats.nextDashTime -= Time.deltaTime;
+        }
 
-    private void UpdateStats(PlayerStats stats)
-    {
-        playerStats = stats;
-    }
+        if (inputManager.DashedThisFrame() && playerStats.nextDashTime <= 0)
+        {
+            Vector3 startPos = transform.position;
+            Vector3 endPos = startPos + moveValue * dashDistance;
 
-    private void OnPlayerDeath()
-    {
-        gameObject.SetActive(false);
+            float elapsedTime = 0f;
+
+            while (elapsedTime < dashDuration)
+            {
+                controller.Move(moveValue * (dashDistance/dashDuration) * Time.deltaTime);
+                elapsedTime += Time.deltaTime;
+            }
+
+            playerStats.nextDashTime = playerStats.dashCooldown;
+        }
     }
 
     private void Crouch()
@@ -120,6 +134,22 @@ public class PlayerController : MonoBehaviour
                 playerCollider.height = playerHeight;
             }
         }
+    }
+
+    private void PerformMovement()
+    {
+        controller.Move(moveValue * Time.deltaTime * playerStats.speed);
+        controller.Move(velocity * Time.deltaTime);
+    }
+
+    private void UpdateStats(PlayerStats stats)
+    {
+        playerStats = stats;
+    }
+
+    private void OnPlayerDeath()
+    {
+        gameObject.SetActive(false);
     }
 
 }

@@ -17,3 +17,5 @@ MonoBehaviour:
   speed: 3
   projectileSpeed: 10
   fireRate: 1
+  dashCooldown: 2
+  nextDashTime: 0

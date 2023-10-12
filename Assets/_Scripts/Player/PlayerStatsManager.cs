@@ -25,6 +25,7 @@ public class PlayerStatsManager : MonoBehaviour
         playerStats.damage += _playerStats.damage;
         playerStats.speed += _playerStats.speed;
         playerStats.fireRate += _playerStats.fireRate;
+        playerStats.dashCooldown += _playerStats.dashCooldown;
 
         onStatsChange?.Invoke(playerStats);
     }

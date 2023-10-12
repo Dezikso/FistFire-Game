@@ -11,6 +11,8 @@ public class PlayerStats : ScriptableObject
     public float speed;
     public float projectileSpeed;
     public float fireRate;
+    public float dashCooldown;
+    [HideInInspector] public float nextDashTime;
     
 
     private void Initialize(PlayerStats _playerStats)
@@ -20,6 +22,8 @@ public class PlayerStats : ScriptableObject
         this.speed = _playerStats.speed;
         this.projectileSpeed = _playerStats.projectileSpeed;
         this.fireRate = _playerStats.fireRate;
+        this.dashCooldown = _playerStats.dashCooldown;
+        this.nextDashTime = this.dashCooldown;
     }
 
     public static PlayerStats CreateInstance(PlayerStats _playerStats)

@@ -1,23 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class Projectile : Interactable
 {
     private enum ProjectileState
     {
         entry,
+        charge,
         idle,
         active,
         exit
     }
 
+    [SerializeField] private MeshRenderer meshRenderer;
+    [SerializeField] private float chargeTime = 1f;
+    [SerializeField] private Material chargingMaterial;
+    [SerializeField] private Material readyMaterial;
 
     private PlayerStats playerStats;
     private ProjectileState state;
     private Vector3 moveDirection;
+    private float countdown;
 
 
     private void Awake()
@@ -31,6 +35,8 @@ public class Projectile : Interactable
 
     private void OnEnable()
     {
+        meshRenderer.material = chargingMaterial;
+        countdown = chargeTime;
         moveDirection = Vector3.zero;
         state = ProjectileState.entry;
     }
@@ -45,15 +51,29 @@ public class Projectile : Interactable
         switch (state)
         {
             case ProjectileState.entry:
-                state = ProjectileState.idle;
+                //spawn particles
+                state = ProjectileState.charge;
                 break;
+
+            case ProjectileState.charge:
+                countdown -= Time.deltaTime;
+                if (countdown <= 0)
+                {
+                    meshRenderer.material = readyMaterial;
+                    state = ProjectileState.idle;
+                }
+                break;
+
             case ProjectileState.idle:
-                //
+                //idle animation
                 break;
+
             case ProjectileState.active:
                 Move();
                 break;
+
             case ProjectileState.exit:
+                //onDestroy particles
                 gameObject.SetActive(false);
                 break;
         }
@@ -85,6 +105,10 @@ public class Projectile : Interactable
             if (other.TryGetComponent(out objectHit))
             {
                 objectHit.ChangeHealth(playerStats.damage);
+                state = ProjectileState.exit;
+            }
+            else
+            {
                 state = ProjectileState.exit;
             }
         }

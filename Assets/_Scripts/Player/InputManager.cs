@@ -33,6 +33,16 @@ public class InputManager : MonoBehaviour
         return playerInput.Player.Jump.WasPerformedThisFrame();
     }
 
+    public bool DashedThisFrame()
+    {
+        return playerInput.Player.Dash.WasPerformedThisFrame();
+    }
+
+    public bool IsCrouching()
+    {
+        return playerInput.Player.Crouch.WasPerformedThisFrame();
+    }
+
     public bool SpawnedProjectileThisFrame()
     {
         return playerInput.Player.SpawnProjectile.WasPerformedThisFrame();
@@ -41,11 +51,6 @@ public class InputManager : MonoBehaviour
     public bool InteractedThisFrame()
     {
         return playerInput.Player.Interact.WasPerformedThisFrame();
-    }
-
-    public bool IsCrouching()
-    {
-        return playerInput.Player.Crouch.WasPerformedThisFrame();
     }
 
 }

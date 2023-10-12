@@ -33,6 +33,24 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Dash",
+                    "type": "Button",
+                    "id": "36230ce3-a77b-42f7-a79f-f374f779654e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Crouch",
+                    "type": "PassThrough",
+                    "id": "1920cb59-ca96-4786-8491-ff08257b6458",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "SpawnProjectile",
                     "type": "Button",
                     "id": "ef10ac57-6d05-4403-940d-eb1c69451af4",
@@ -45,15 +63,6 @@
                     "name": "Interact",
                     "type": "Button",
                     "id": "b2fa3bc9-a532-4071-9493-38f36d5abce8",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Crouch",
-                    "type": "PassThrough",
-                    "id": "1920cb59-ca96-4786-8491-ff08257b6458",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -157,6 +166,17 @@
                     "processors": "",
                     "groups": "MouseAndKeyboard",
                     "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dd2e5e00-cb7a-4c6d-8b63-f8f49b99ce2d",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "MouseAndKeyboard",
+                    "action": "Dash",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
